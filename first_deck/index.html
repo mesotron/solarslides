@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>Solar Weather Explorer</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+	<meta name="description" content="Solar Weather Explorer">
+	<meta name="author" content="">
+	<meta name="generator" content="slidify" />
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" media="print"
+	  href="libraries/frameworks/shower/themes/ribbon/styles/print.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css">  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+	<!--
+		To apply styles to the certain slides
+		use slide ID to get needed elements
+		-->
+	<style>
+		#Cover h2 {
+      margin:65px 0 0;
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#FitToWidth h2,
+		#FitToHeight h2 {
+			color:#FFF;
+			text-align:center;
+			}
+	</style> 
+</head>
+<body class="list">
+  <header class="caption">
+  	<h1>Solar Weather Explorer</h1>
+	</header>
+  <section class="slide " id="slide-1">
+  <div>
+    <h2>Background</h2>
+    <ul>
+<li>Sunspot activity is correlated with the frequency of &#39;geomagnetic storms&#39;, disturbances caused by solar wind
+
+<ul>
+<li>Extreme storms, such as occurred in 1859 or 1921, come about every 100 years and could decimate the modern power grid [1,2]</li>
+</ul></li>
+<li>Visualizing these correlations can help us better understand them</li>
+</ul>
+
+<p>[1] Kappenman, J. <a href="http://spectrum.ieee.org/energy/the-smarter-grid/a-perfect-storm-of-planetary-proportions">&#39;A perfect storm of planetary proportions.&#39;</a> IEEE Spectrum.
+[2] Behr, P. <a href="http://www.nytimes.com/cwire/2011/06/09/09climatewire-this-weeks-solar-flare-illuminates-the-grids-63979.html">&#39;This week&#39;s solar flare illuminates the grid&#39;s vulnerability&#39;.</a> New York Times.</p>
+
+  </div>
+</section>
+<section class="slide " id="slide-2">
+  <div>
+    <h2>The Solar Weather Explorer</h2>
+    <ul>
+<li>Lets user drag slider to visualize variation in sunspot activity for any range of years in the historical record</li>
+<li>Lets user check box to see when severe solar storms from 1859 to 2012 occurred</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-3">
+  <div>
+    <h2>The Solar Weather Explorer</h2>
+    <ul>
+<li>Graph labeling and tick marks automatically switch from years to months when intervals of 5 years or less are selected</li>
+<li>Calculates number of severe storms observed within selected date range</li>
+</ul>
+
+  </div>
+</section>
+<section class="slide " id="slide-4">
+  <div>
+    <h2>The Solar Weather Explorer</h2>
+    <ul>
+<li>Calculates number of severe storms within selected date range</li>
+</ul>
+
+<pre><code class="r">#Example calculation -- severe storm count from 1900 to 1938
+storms &lt;- read.table(&quot;severestorms.txt&quot;, header=T)
+storms$date &lt;- storms$year + (storms$month - 1)/12
+sum(storms$date &gt;= 1900 &amp; storms$date &lt;= 1938)
+</code></pre>
+
+<pre><code>## [1] 34
+</code></pre>
+
+  </div>
+</section>
+<section class="slide " id="slide-5">
+  <div>
+    <h2>The Solar Weather Explorer</h2>
+    <ul>
+<li>Facilitates understanding of relationship between sunspot trends and storm frequency</li>
+</ul>
+
+<p><img src="assets/img/trend.jpg" alt="App screenshot"></p>
+
+  </div>
+</section>
+  <div class="progress">
+    <div></div>
+  </div>
+	<script src="libraries/frameworks/shower/shower.js"></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+		<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+	<!-- Photos by John Carey — fiftyfootshadows.net -->
+</body>
+</html>
